@@ -1,3 +1,6 @@
+/*You have m types of coins available in infinite quantities where the value of each coin is given in the array c[c[0],c[1]...c[m-1]]. Can you determine the number of ways of making change for  units using the given types of coins? For example, if m=4, and c=[8,3,1,2], we can make change for n=3 units in three ways: {1,1,1},{1,2} and {3}.
+
+Given n, m, and c print the number of ways to make change for  n units using any number of coins having the values given in c.*/
 import java.util.*;
 import java.util.Arrays;
 class Coins
