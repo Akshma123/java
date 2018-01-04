@@ -1,0 +1,48 @@
+import java.util.*;
+import java.util.Arrays;
+class Coins
+{
+ public static void main(String[] args)
+ {
+  Scanner sc = new Scanner(System.in);
+  int n,m;
+  System.out.println("enter required changes i.e n");
+  n=sc.nextInt();
+  System.out.println("enter how many coins are present i.e m");
+  m=sc.nextInt();
+  //initialize array 
+  long[][] a=new long[m+1][n+1];
+  //initialize array to store the value of coins
+  int[] value=new int[m+1];
+  System.out.println("enter coins value");
+  for(int k=1;k<=m;k++)
+  value[k]=sc.nextInt();
+  Arrays.sort(value);
+  System.out.println("sorted");
+   for(int j=1;j<=n;j++)
+      a[0][j]=0;
+   for(int j=0;j<=m;j++)
+     a[j][0]=1;
+   for(int i=1;i<=m;i++)
+   {
+     for(int j=1;j<=n;j++)
+	 {
+	  if(j<value[i])
+	  a[i][j]=a[i-1][j];
+	  else
+	  {
+	   a[i][j]=a[i-1][j]+a[i][j-value[i]];
+	  }
+	 }
+   }   
+	 for(int i=0;i<=m;i++)
+	 {
+	  for(int j=0;j<=n;j++)
+	  {
+	   System.out.print(a[i][j]+" ");
+	  }
+	  System.out.println();
+	 }
+	System.out.println(a[m][n]); 
+ }
+}
